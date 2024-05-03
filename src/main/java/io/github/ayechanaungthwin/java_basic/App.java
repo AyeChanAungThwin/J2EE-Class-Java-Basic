@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
+import io.github.ayechanaungthwin.java_basic.list.DoublyLinkedList;
+import io.github.ayechanaungthwin.java_basic.list.Node;
 import io.github.ayechanaungthwin.java_basic.list.SinglyLinkedList;
 
 public class App {
@@ -12,17 +14,8 @@ public class App {
     public static void main( String[] args ) {
     	//HashMapTest();
     	//HashSetTest();
-    	SinglyLinkedList<String> singlyLinkedList = new SinglyLinkedList<>();
-    	singlyLinkedList.add("A");
-    	singlyLinkedList.add("B");
-    	singlyLinkedList.add("C");
-    	singlyLinkedList.add("D");
-    	singlyLinkedList.add("E");
-    	
-    	singlyLinkedList.showOutput();
-    	System.out.println(singlyLinkedList.size());
-    	
-    	//Stack : FILO
+    	//SinglyLinkedListTest();
+    	DoublyLinkedListTest();
     }
     
     public static void HashMapTest() {
@@ -55,5 +48,46 @@ public class App {
     	while (it.hasNext()) {
     		System.out.println(it.next());
     	}
+    }
+    
+    public static void NodeTest() {
+    	Node<Character> head = new Node<Character>('A');
+    	
+    	head.next = new Node<Character>('B');
+    	head.next.next = new Node<Character>('C');
+    	head.next.next.next = new Node<Character>('D');
+    	head.next.next.next.next = new Node<Character>('E');
+    	
+    	System.out.println(head.data);
+    	System.out.println(head.next.data);
+    	System.out.println(head.next.next.data);
+    	System.out.println(head.next.next.next.data);
+    	System.out.println(head.next.next.next.next.data);
+    }
+    
+    public static void SinglyLinkedListTest() {
+    	SinglyLinkedList<String> singlyLinkedList = new SinglyLinkedList<>();
+    	singlyLinkedList.add("A");
+    	singlyLinkedList.add("B");
+    	singlyLinkedList.add("C");
+    	singlyLinkedList.add("D");
+    	singlyLinkedList.add("E");
+    	
+    	singlyLinkedList.showOutput();
+    	System.out.println("Size: "+singlyLinkedList.size());
+    }
+    
+    public static void DoublyLinkedListTest() {
+    	DoublyLinkedList<String> doublyLinkedList = new DoublyLinkedList<>();
+    
+    	doublyLinkedList.add("A");
+    	doublyLinkedList.add("B");
+    	doublyLinkedList.add("C");
+    	doublyLinkedList.add("D");
+    	doublyLinkedList.add("E");
+    	
+    	System.out.println("Popped: "+doublyLinkedList.pop());
+    	
+    	doublyLinkedList.showOutput();
     }
 }

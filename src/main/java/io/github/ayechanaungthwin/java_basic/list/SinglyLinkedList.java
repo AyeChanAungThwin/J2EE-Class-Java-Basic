@@ -2,7 +2,7 @@ package io.github.ayechanaungthwin.java_basic.list;
 
 public class SinglyLinkedList<T> {
 	
-	private Node<T> header;
+	private Node<T> head;
 	private int size;
 	
 	private class Node<T> {
@@ -16,15 +16,15 @@ public class SinglyLinkedList<T> {
 	}
 	
 	public SinglyLinkedList() {
-		header = null;
+		head = null;
 		size = 0;
 	}
 	
 	public void add(T data) {
 		size++;
-		Node<T> temp = header;
-		if (header==null) {
-			header = new Node<T>(data);
+		Node<T> temp = this.head;
+		if (this.head==null) {
+			this.head = new Node<T>(data);
 		}
 		else {
 			while (temp.next!=null) {
@@ -35,22 +35,20 @@ public class SinglyLinkedList<T> {
 	}
 	
 	public void showOutput() {
-		Node<T> temp = header;
-		while(temp.next!=null) {
+		Node<T> temp = head;
+		while(temp!=null) {
 			System.out.println(temp.data);
 			temp = temp.next;
 		}
-		System.out.println(temp.data);
 	}
 	
 	public int size() {
 		int size = 0;
-		Node<T> temp = header;
-		while(temp.next!=null) {
+		Node<T> temp = head;
+		while(temp!=null) {
 			size++;
 			temp = temp.next;
 		}
-		size++;
 		return size;
 	}
 }
