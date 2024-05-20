@@ -8,6 +8,9 @@ import java.util.Map;
 import io.github.ayechanaungthwin.java_basic.list.DoublyLinkedList;
 import io.github.ayechanaungthwin.java_basic.list.Node;
 import io.github.ayechanaungthwin.java_basic.list.SinglyLinkedList;
+import io.github.ayechanaungthwin.java_basic.reflection.Person;
+import io.github.ayechanaungthwin.java_basic.reflection.Product;
+import io.github.ayechanaungthwin.java_basic.reflection.TableCreator;
 
 public class App {
 	
@@ -15,7 +18,13 @@ public class App {
     	//HashMapTest();
     	//HashSetTest();
     	//SinglyLinkedListTest();
-    	DoublyLinkedListTest();
+    	//DoublyLinkedListTest();
+    	
+    	//boolean bool = false;
+    	
+    	//System.out.println(bool?"a":"b");
+    	
+    	reflectionTest();
     }
     
     public static void HashMapTest() {
@@ -89,5 +98,18 @@ public class App {
     	System.out.println("Popped: "+doublyLinkedList.pop());
     	
     	doublyLinkedList.showOutput();
+    }
+    
+    public static void reflectionTest() {
+    	Person prn = new Person();
+    	prn.setId(1L);
+    	prn.setName("Aye Chan");
+    	prn.setAge(29);
+    	
+    	TableCreator<Person> personTable = new TableCreator<Person>(prn);
+    	System.out.println(personTable.getCreateTableQuery());
+    	
+    	TableCreator<Product> productTable = new TableCreator<Product>(new Product());
+    	System.out.println(productTable.getCreateTableQuery());
     }
 }
